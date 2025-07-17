@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Sosa Alexander J.</title>
+    <!-- Icono -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <!-- CDN de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuente de Google - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CDN de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CDN de AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="antialiased">
+
+    <!-- Encabezado y Navegación -->
+    <header class="bg-gray-900 shadow-lg py-4 fixed top-0 left-0 w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center px-4">
+            <a href="#"
+                class="text-2xl font-bold text-green-400 hover:text-green-300 transition duration-300 ease-in-out rounded-md p-2">
+                &lt;Sosa, Alexander J./&gt;
+            </a>
+            <ul class="flex space-x-6">
+                <li><a href="#hero"
+                        class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-lg font-medium">Inicio</a>
+                </li>
+                <li><a href="#about"
+                        class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-lg font-medium">Sobre
+                        Mí</a></li>
+                <li><a href="#cv"
+                        class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-lg font-medium">CV</a>
+                </li>
+                <li><a href="#skills"
+                        class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-lg font-medium">Habilidades</a>
+                </li>
+                <li><a href="#projects"
+                        class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-lg font-medium">Proyectos</a>
+                </li>
+                <li><a href="#contact"
+                        class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-lg font-medium">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        <!-- Sección de Hero -->
+        <section id="hero" class="h-screen px-4" data-aos="fade-up">
+            <div id="particles-js"></div> <!-- Contenedor para las partículas -->
+            <!-- Nuevo div envolvente para el contenido, posicionado absolutamente y centrado -->
+            <div class="content-wrapper">
+                <div class="max-w-4xl text-center">
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 animate-pulse-slow">
+                        Hola, soy <span class="text-green-400">Sosa, Alexander J.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                        Analista en Sistemas y Desarrollador Full Stack apasionado por crear soluciones web innovadoras
+                        y eficientes.
+                    </p>
+                    <a href="#projects"
+                        class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                        Ver Mis Proyectos <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Sobre Mí -->
+        <section id="about" class="py-20 bg-gray-900 px-4" data-aos="fade-right">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold text-white mb-10 section-title">Sobre Mí</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    Soy Sosa, Alexander J., un Analista en Sistemas y desarrollador con experiencia en la creación de
+                    aplicaciones web robustas y escalables, tanto en el frontend como en el backend. Mi enfoque se
+                    centra en escribir código limpio, modular y eficiente, siempre buscando las mejores prácticas y
+                    nuevas tecnologías.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    Originario de Barranqueras, Chaco, Argentina, me apasiona resolver problemas complejos y transformar
+                    ideas en productos funcionales y atractivos. Siempre estoy aprendiendo y adaptándome a los desafíos
+                    del mundo tecnológico. ¡Echemos un vistazo a lo que he construido!
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección de CV -->
+        <section id="cv" class="py-20 bg-black px-4" data-aos="fade-up">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold text-white mb-10 section-title">Mi Currículum Vitae</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                    Descarga mi currículum vitae para obtener más detalles sobre mi experiencia profesional y formación
+                    académica.
+                </p>
+                <a href="/ruta/a/tu/cv.pdf" download="Sosa_Alexander_J_CV.pdf"
+                    class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                    Descargar CV <i class="fas fa-download ml-2"></i>
+                </a>
+                <p class="text-sm text-gray-500 mt-4">
+                    (Asegúrate de reemplazar "/ruta/a/tu/cv.pdf" con la ubicación real de tu archivo PDF)
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección de Habilidades -->
+        <section id="skills" class="py-20 bg-gray-900 px-4" data-aos="fade-left">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold text-white mb-10 section-title">Mis Habilidades</h2>
+
+                <div class="mb-12">
+                    <h3 class="text-3xl font-bold text-white mb-8">Habilidades Fuertes</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+                        <!-- Habilidades Fuertes (100%) -->
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fab fa-java text-6xl text-red-700 mb-4" title="Java"></i>
+                            <p class="text-xl font-semibold text-white mb-2">Java</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">100%</span>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fas fa-leaf text-6xl text-green-600 mb-4" title="SpringBoot"></i>
+                            <p class="text-xl font-semibold text-white mb-2">SpringBoot</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">100%</span>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fab fa-html5 text-6xl text-orange-500 mb-4" title="HTML5"></i>
+                            <p class="text-xl font-semibold text-white mb-2">HTML5</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">100%</span>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fas fa-database text-6xl text-blue-600 mb-4" title="MySQL"></i>
+                            <p class="text-xl font-semibold text-white mb-2">MySQL</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">100%</span>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fas fa-microchip text-6xl text-red-500 mb-4" title="Arduino"></i>
+                            <p class="text-xl font-semibold text-white mb-2">Arduino</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">100%</span>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fab fa-git-alt text-6xl text-orange-600 mb-4" title="Git"></i>
+                            <p class="text-xl font-semibold text-white mb-2">Git</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-8">Habilidades en Aprendizaje</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+                        <!-- Habilidades en Aprendizaje -->
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fab fa-react text-6xl text-blue-400 mb-4" title="React.js"></i>
+                            <p class="text-xl font-semibold text-white mb-2">React.js</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 5%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">5%</span>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fab fa-python text-6xl text-blue-500 mb-4" title="Python"></i>
+                            <p class="text-xl font-semibold text-white mb-2">Python</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 45%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">45%</span>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fab fa-js text-6xl text-yellow-500 mb-4" title="JavaScript"></i>
+                            <p class="text-xl font-semibold text-white mb-2">JavaScript</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 75%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">75%</span>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out flex flex-col items-center">
+                            <i class="fab fa-css3-alt text-6xl text-blue-500 mb-4" title="CSS"></i>
+                            <p class="text-xl font-semibold text-white mb-2">CSS</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 50%;"></div>
+                            </div>
+                            <span class="text-sm text-gray-400">50%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Proyectos -->
+        <section id="projects" class="py-20 bg-gray-900 px-4" data-aos="fade-up">
+            <div class="container mx-auto max-w-6xl text-center">
+                <h2 class="text-4xl font-bold text-white mb-10 section-title">Mis Proyectos</h2>
+                <div class="relative w-full max-w-4xl mx-auto">
+                    <!-- Contenedor del carrusel -->
+                    <div id="carousel-container" class="flex overflow-hidden">
+                        <!-- Las tarjetas de proyecto se generarán aquí con JavaScript -->
+                    </div>
+                    <!-- Botones de navegación del carrusel -->
+                    <button id="prev-btn"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-700 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-10 ml-4">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-btn"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-700 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-10 mr-4">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contact" class="py-20 bg-black px-4" data-aos="fade-up">
+            <div class="container mx-auto max-w-2xl text-center">
+                <h2 class="text-4xl font-bold text-white mb-10 section-title">Contacto</h2>
+                <p class="text-lg text-gray-300 mb-8">
+                    ¿Tienes una idea o necesitas un desarrollador? ¡No dudes en contactarme!
+                </p>
+                <form id="contact-form" class="bg-gray-900 p-8 rounded-lg shadow-lg">
+                    <div class="mb-6 text-left">
+                        <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
+                        <input type="text" id="name" name="name"
+                            class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-200"
+                            placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email"
+                            class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-200"
+                            placeholder="tu.email@ejemplo.com" required>
+                    </div>
+                    <div class="mb-8 text-left">
+                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Mensaje:</label>
+                        <textarea id="message" name="message" rows="6"
+                            class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-200"
+                            placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                        Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                    <div id="form-status" class="mt-4 text-center text-sm font-semibold"></div>
+                </form>
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-white mb-6">Encuéntrame en:</h3>
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://github.com/Z4XTHC" target="_blank"
+                            class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-5xl"
+                            title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/alexander-joaqu%C3%ADn-sosa-99a139218/" target="_blank"
+                            class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-5xl"
+                            title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.facebook.com/tu_usuario" target="_blank"
+                            class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-5xl"
+                            title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tu_usuario" target="_blank"
+                            class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-5xl"
+                            title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/tu_numero_whatsapp" target="_blank"
+                            class="text-gray-300 hover:text-green-400 transition duration-300 ease-in-out text-5xl"
+                            title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-gray-900 py-8 text-center text-gray-400 text-sm">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Sosa, Alexander J.. Todos los derechos reservados.</p>
+            <p class="mt-2">Diseñado por MangoSoft.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Detalle de Proyecto -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-project-title" class="text-3xl font-bold text-white mb-4"></h3>
+            <div id="modal-project-images" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <!-- Las imágenes del proyecto se cargarán aquí -->
+            </div>
+            <p id="modal-project-description" class="text-lg text-gray-300 leading-relaxed mb-6"></p>
+            <div id="modal-project-tech" class="flex flex-wrap justify-center gap-4 mb-6">
+                <!-- Los iconos de tecnologías se cargarán aquí -->
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a id="modal-project-demo" href="#" target="_blank"
+                    class="text-green-400 hover:text-green-300 text-lg font-medium">
+                    <i class="fas fa-external-link-alt mr-1"></i> Ver Proyecto
+                </a>
+                <a id="modal-project-github" href="#" target="_blank"
+                    class="text-gray-400 hover:text-gray-300 text-lg font-medium">
+                    <i class="fab fa-github mr-1"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDN de particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- JS de AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>
