@@ -1,7 +1,7 @@
 AOS.init({
-  duration: 1000, 
-  once: false, 
-  mirror: true, 
+  duration: 1000,
+  once: false,
+  mirror: true,
 });
 
 // Desplazamiento suave para los enlaces de navegación
@@ -29,7 +29,7 @@ const projectsData = [
       { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
       { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
       { icon: "fab fa-js", color: "text-yellow-500", title: "JavaScript" },
-      
+
     ],
     demoLink: "https://eeta32.netlify.app/", // Enlace de demo si existe
     githubLink: "https://eeta32.netlify.app/", // Enlace de GitHub si existe
@@ -48,7 +48,7 @@ const projectsData = [
       { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
       { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
       { icon: "fab fa-js", color: "text-yellow-500", title: "JavaScript" },
-      
+
     ],
     demoLink: "https://smartbiblio.netlify.app/",
     githubLink: "https://smartbiblio.netlify.app/",
@@ -67,7 +67,7 @@ const projectsData = [
       { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
       { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
       { icon: "fab fa-js", color: "text-yellow-500", title: "JavaScript" },
-      
+
     ],
     demoLink: "https://cob-testing.netlify.app/",
     githubLink: "https://cob-testing.netlify.app/",
@@ -103,11 +103,11 @@ const projectsData = [
     technologies: [
       { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
       { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
-      { icon: "fas fa-cube", color: "text-purple-400", title: "Scratch" }, 
+      { icon: "fas fa-cube", color: "text-purple-400", title: "Scratch" },
       { icon: "fas fa-robot", color: "text-blue-400", title: "POE" },
     ],
     demoLink: "https://z4xthc.github.io/medioAmbiente/",
-    githubLink: "#", 
+    githubLink: "#",
     image: "/img/medioambiente/1.png",
     modalImages: ["/img/medioambiente/2.png", "/img/medioambiente/3.png"],
   },
@@ -208,53 +208,33 @@ const projectsData = [
   },
 ];
 
-// Lógica para generar las tarjetas de proyecto dinámicamente
-const carouselContainer = document.getElementById("carousel-container");
-projectsData.forEach((project) => {
+// Lógica del carrusel
+const carouselContainer = document.getElementById('carousel-container');
+projectsData.forEach(project => {
   const projectCardHTML = `
-                <div class="project-card-wrapper" data-aos="zoom-in">
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-                        <img src="${
-                          project.image
-                        }" alt="Captura de pantalla de ${
-    project.title
-  }" class="w-full h-48 object-cover">
+                <div class="project-card-wrapper" data-aos="zoom-in" data-project-id="${project.id}">
+                    <div class="project-card-hover bg-black rounded-lg shadow-lg flex flex-col min-h-[400px]">
+                        <img class="w-full h-48 object-cover rounded-t-lg" src="${project.image}" onerror="this.onerror=null;this.src='https://placehold.co/400x300/4ade80/000?text=Imagen+no+encontrada';" alt="Captura de pantalla de ${project.title}">
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="text-2xl font-semibold text-white mb-2">${
-                                  project.title
-                                }</h3>
+                                <h3 class="text-2xl font-semibold text-white mb-2">${project.title}</h3>
+                                <p class="text-gray-300 text-sm mb-4">${project.shortDescription}</p>
                                 <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
-                                    <div class="bg-green-500 h-2.5 rounded-full" style="width: ${
-                                      project.percentage
-                                    }%;"></div>
+                                    <div class="bg-green-500 h-2.5 rounded-full" style="width: ${project.percentage}%;"></div>
                                 </div>
-                                <span class="text-sm text-gray-400">${
-                                  project.percentage
-                                }% de progreso</span>
+                                <span class="text-sm text-gray-400">${project.percentage}% de progreso</span>
                             </div>
                             <div class="flex flex-wrap justify-center gap-3 my-4">
-                                ${project.technologies
-                                  .map(
-                                    (tech) =>
-                                      `<i class="${tech.icon} ${tech.color} text-3xl" title="${tech.title}"></i>`
-                                  )
-                                  .join("")}
+                                ${project.technologies.map(tech => `<i class="${tech.icon} ${tech.color} text-3xl" title="${tech.title}"></i>`).join('')}
                             </div>
-                            <div class="flex justify-center space-x-4">
-                                <a href="${
-                                  project.demoLink
-                                }" target="_blank" class="text-green-400 hover:text-green-300 text-lg font-medium">
+                            <div class="flex justify-center space-x-4 mt-auto">
+                                <a href="${project.demoLink}" target="_blank" class="text-green-400 hover:text-green-300 text-lg font-medium">
                                     <i class="fas fa-external-link-alt mr-1"></i> Ver Proyecto
                                 </a>
-                                <a href="${
-                                  project.githubLink
-                                }" target="_blank" class="text-gray-400 hover:text-gray-300 text-lg font-medium">
+                                <a href="${project.githubLink}" target="_blank" class="text-gray-400 hover:text-gray-300 text-lg font-medium">
                                     <i class="fab fa-github mr-1"></i> GitHub
                                 </a>
-                                <button class="text-green-400 hover:text-green-300 text-lg font-medium more-details-btn" data-project-id="${
-                                  project.id
-                                }">
+                                <button class="text-green-400 hover:text-green-300 text-lg font-medium more-details-btn" data-project-id="${project.id}">
                                     <i class="fas fa-info-circle mr-1"></i> Más Detalle
                                 </button>
                             </div>
@@ -262,151 +242,118 @@ projectsData.forEach((project) => {
                     </div>
                 </div>
             `;
-  carouselContainer.insertAdjacentHTML("beforeend", projectCardHTML);
+  carouselContainer.insertAdjacentHTML('beforeend', projectCardHTML);
 });
 
-// Lógica del Carrusel de Proyectos
-const projectCards = carouselContainer.querySelectorAll(
-  ".project-card-wrapper"
-);
-const prevBtn = document.getElementById("prev-btn");
-const nextBtn = document.getElementById("next-btn");
+const carouselViewport = document.getElementById('carousel-viewport');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
 
-let currentProjectIndex = 0;
-
-// Función para actualizar la visibilidad y posición del carrusel
-function updateCarousel() {
-  if (projectCards.length === 0) return; // Evitar errores si no hay proyectos
-
-  // Calcula el ancho de una tarjeta, incluyendo el padding lateral (2rem = 32px en total)
-  const cardWidth = projectCards[0].offsetWidth;
-  const scrollAmount = currentProjectIndex * cardWidth;
-  carouselContainer.scrollTo({
-    left: scrollAmount,
-    behavior: "smooth",
+nextBtn.addEventListener('click', () => {
+  carouselViewport.scrollBy({
+    left: carouselViewport.clientWidth,
+    behavior: 'smooth'
   });
-
-  // Deshabilitar/Habilitar botones de navegación
-  prevBtn.disabled = currentProjectIndex === 0;
-  nextBtn.disabled = currentProjectIndex >= projectCards.length - 1;
-
-  // Ajustar opacidad para dar feedback visual
-  prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
-  nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
-}
-
-// Event listeners para los botones de navegación
-prevBtn.addEventListener("click", () => {
-  if (currentProjectIndex > 0) {
-    currentProjectIndex--;
-    updateCarousel();
-  }
 });
 
-nextBtn.addEventListener("click", () => {
-  if (currentProjectIndex < projectCards.length - 1) {
-    currentProjectIndex++;
-    updateCarousel();
-  }
+prevBtn.addEventListener('click', () => {
+  carouselViewport.scrollBy({
+    left: -carouselViewport.clientWidth,
+    behavior: 'smooth'
+  });
 });
 
-// Inicializar el carrusel al cargar la página y al redimensionar la ventana
-window.addEventListener("load", updateCarousel);
-window.addEventListener("resize", updateCarousel);
+carouselViewport.addEventListener('scroll', () => {
+  const atStart = carouselViewport.scrollLeft <= 0;
+  const atEnd = carouselViewport.scrollLeft + carouselViewport.clientWidth >= carouselContainer.scrollWidth;
+  prevBtn.disabled = atStart;
+  nextBtn.disabled = atEnd;
+  prevBtn.style.opacity = atStart ? '0.5' : '1';
+  nextBtn.style.opacity = atEnd ? '0.5' : '1';
+});
+
+window.addEventListener('load', () => {
+  const atStart = carouselViewport.scrollLeft <= 0;
+  prevBtn.disabled = atStart;
+  prevBtn.style.opacity = atStart ? '0.5' : '1';
+});
 
 // Lógica del Modal
-const projectModal = document.getElementById("project-modal");
-const closeButton = projectModal.querySelector(".close-button");
-const modalTitle = document.getElementById("modal-project-title");
-const modalDescription = document.getElementById("modal-project-description");
-const modalTech = document.getElementById("modal-project-tech");
-const modalDemoLink = document.getElementById("modal-project-demo");
-const modalGithubLink = document.getElementById("modal-project-github");
-const modalImagesContainer = document.getElementById("modal-project-images");
+const projectModal = document.getElementById('project-modal');
+const closeButton = projectModal.querySelector('.close-button');
+const modalTitle = document.getElementById('modal-project-title');
+const modalDescription = document.getElementById('modal-project-description');
+const modalTech = document.getElementById('modal-project-tech');
+const modalDemoLink = document.getElementById('modal-project-demo');
+const modalGithubLink = document.getElementById('modal-project-github');
+const modalImagesContainer = document.getElementById('modal-project-images');
 
-// Función para abrir el modal
 function openModal(projectId) {
-  const project = projectsData.find((p) => p.id === projectId);
+  const project = projectsData.find(p => p.id === projectId);
   if (!project) return;
-
   modalTitle.textContent = project.title;
   modalDescription.textContent = project.fullDescription;
   modalDemoLink.href = project.demoLink;
   modalGithubLink.href = project.githubLink;
-
-  // Limpiar y añadir tecnologías
-  modalTech.innerHTML = "";
-  project.technologies.forEach((tech) => {
-    const iconElement = document.createElement("i");
+  modalTech.innerHTML = '';
+  project.technologies.forEach(tech => {
+    const iconElement = document.createElement('i');
     iconElement.className = `${tech.icon} ${tech.color} text-4xl`;
     iconElement.title = tech.title;
     modalTech.appendChild(iconElement);
   });
-
-  // Limpiar y añadir imágenes del modal
-  modalImagesContainer.innerHTML = "";
-  project.modalImages.forEach((imgSrc) => {
-    const imgElement = document.createElement("img");
+  modalImagesContainer.innerHTML = '';
+  project.modalImages.forEach(imgSrc => {
+    const imgElement = document.createElement('img');
     imgElement.src = imgSrc;
     imgElement.alt = `Imagen de ${project.title}`;
-    imgElement.className = "w-full h-auto rounded-lg shadow-md object-cover";
+    imgElement.className = 'w-full h-auto rounded-lg shadow-md object-cover';
     modalImagesContainer.appendChild(imgElement);
   });
-
-  projectModal.style.display = "block";
+  projectModal.style.display = 'block';
 }
 
-// Event listener para los botones "Más Detalle"
-carouselContainer.addEventListener("click", function (e) {
-  if (e.target.classList.contains("more-details-btn")) {
-    const projectId = e.target.dataset.projectId;
+// Lógica para abrir el modal al hacer clic en cualquier parte de la tarjeta
+carouselContainer.addEventListener('click', function (e) {
+  const cardElement = e.target.closest('.project-card-wrapper');
+  const clickedElement = e.target;
+
+  if (cardElement && !clickedElement.closest('a')) {
+    const projectId = cardElement.dataset.projectId;
     openModal(projectId);
   }
 });
 
-// Event listener para cerrar el modal
-closeButton.addEventListener("click", () => {
-  projectModal.style.display = "none";
+closeButton.addEventListener('click', () => {
+  projectModal.style.display = 'none';
 });
 
-// Cerrar el modal haciendo clic fuera del contenido
-window.addEventListener("click", (event) => {
+window.addEventListener('click', (event) => {
   if (event.target === projectModal) {
-    projectModal.style.display = "none";
+    projectModal.style.display = 'none';
   }
 });
 
-// Envío del Formulario de Contacto (solo del lado del cliente para este ejemplo)
-document
-  .getElementById("contact-form")
-  .addEventListener("submit", function (e) {
-    e.preventDefault(); // Previene el envío predeterminado del formulario
+// Lógica del Formulario de Contacto
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const formStatus = document.getElementById('form-status');
+  formStatus.textContent = 'Enviando mensaje...';
+  formStatus.className = 'mt-4 text-center text-sm font-semibold text-green-400';
+  setTimeout(() => {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    console.log('Formulario enviado:');
+    console.log('Nombre:', name);
+    console.log('Email:', email);
+    console.log('Mensaje:', message);
+    formStatus.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.';
+    formStatus.className = 'mt-4 text-center text-sm font-semibold text-green-500';
+    this.reset();
+  }, 2000);
+});
 
-    const formStatus = document.getElementById("form-status");
-    formStatus.textContent = "Enviando mensaje...";
-    formStatus.className =
-      "mt-4 text-center text-sm font-semibold text-green-400";
-
-    // Simula el envío del formulario
-    setTimeout(() => {
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
-
-      console.log("Formulario enviado:");
-      console.log("Nombre:", name);
-      console.log("Email:", email);
-      console.log("Mensaje:", message);
-
-      formStatus.textContent =
-        "¡Mensaje enviado con éxito! Te responderé pronto.";
-      formStatus.className =
-        "mt-4 text-center text-sm font-semibold text-green-500";
-
-      // Limpia el formulario
-      this.reset();
-    }, 2000); // Simula un retraso de 2 segundos para el envío
-  });
 
 // Inicialización de particles.js
 particlesJS("particles-js", {

@@ -1,234 +1,206 @@
- /* Estilos personalizados para sobrescribir/extender Tailwind si es necesario */
- body {
-     font-family: 'Inter', sans-serif;
-     background-color: #0a0a0a;
-     /* Fondo negro oscuro */
-     color: #f0f0f0;
-     /* Color de texto blanco claro */
- }
+/* Estilos personalizados para sobrescribir/extender Tailwind si es necesario */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0a0a;
+    color: #f0f0f0;
+}
 
- .section-title {
-     position: relative;
-     display: inline-block;
-     padding-bottom: 0.5rem;
-     margin-bottom: 2rem;
- }
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
 
- .section-title::after {
-     content: '';
-     position: absolute;
-     left: 0;
-     bottom: 0;
-     width: 50%;
-     height: 3px;
-     background-color: #4ade80;
-     /* Color de acento verde vibrante */
-     border-radius: 9999px;
- }
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 3px;
+    background-color: #4ade80;
+    border-radius: 9999px;
+}
 
- /* Barra de desplazamiento personalizada para un aspecto más limpio */
- ::-webkit-scrollbar {
-     width: 8px;
- }
+/* Barra de desplazamiento personalizada para un aspecto más limpio */
+::-webkit-scrollbar {
+    width: 8px;
+}
 
- ::-webkit-scrollbar-track {
-     background: #1a1a1a;
-     /* Pista más oscura */
- }
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
 
- ::-webkit-scrollbar-thumb {
-     background: #333333;
-     /* Pulgar grisáceo */
-     border-radius: 10px;
- }
+::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 10px;
+}
 
- ::-webkit-scrollbar-thumb:hover {
-     background: #4ade80;
-     /* Color de acento verde en hover */
- }
+::-webkit-scrollbar-thumb:hover {
+    background: #4ade80;
+}
 
- /* Estilos específicos para el carrusel */
- #carousel-container {
-     scroll-snap-type: x mandatory;
-     /* Habilita el snap de desplazamiento */
-     -webkit-overflow-scrolling: touch;
-     /* Suaviza el desplazamiento en iOS */
-     overflow-x: auto;
-     /* Permite el desplazamiento horizontal */
-     scrollbar-width: none;
-     /* Oculta la barra de desplazamiento en Firefox */
-     -ms-overflow-style: none;
-     /* Oculta la barra de desplazamiento en IE/Edge */
- }
+/* Estilos específicos para el carrusel */
+#carousel-viewport {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
 
- #carousel-container::-webkit-scrollbar {
-     display: none;
-     /* Oculta la barra de desplazamiento en Chrome/Safari */
- }
+#carousel-viewport::-webkit-scrollbar {
+    display: none;
+}
 
- .project-card-wrapper {
-     flex: 0 0 auto;
-     /* No permite que las tarjetas se encojan o crezcan */
-     scroll-snap-align: start;
-     /* Alinea el inicio de cada tarjeta al punto de snap */
-     width: 100%;
-     /* Una tarjeta por vista en pantallas pequeñas */
-     padding: 0 1rem;
-     /* Espaciado entre tarjetas */
-     box-sizing: border-box;
-     /* Incluye padding en el ancho */
- }
+#carousel-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
 
- @media (min-width: 768px) {
+.project-card-wrapper {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+}
 
-     /* md breakpoint */
-     .project-card-wrapper {
-         width: 50%;
-         /* Dos tarjetas por vista en pantallas medianas */
-     }
- }
+/* Modificación para mostrar más proyectos */
+@media (min-width: 768px) {
+    .project-card-wrapper {
+        width: 33.3333%;
+    }
+}
 
- @media (min-width: 1024px) {
+/* Zoom y sombra para las tarjetas de proyecto */
+.project-card-hover {
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+}
 
-     /* lg breakpoint */
-     .project-card-wrapper {
-         width: 33.3333%;
-         /* Tres tarjetas por vista en pantallas grandes */
-     }
- }
+.project-card-hover:hover {
+    box-shadow: 0 10px 20px rgba(74, 222, 128, 0.5);
+    transform: scale(1.05);
+}
 
- /* Estilo para la sección de héroe con imagen de fondo */
- #hero {
-     background-image: url('https://static.vecteezy.com/system/resources/previews/010/520/048/non_2x/programming-code-background-vector.jpg');
-     background-size: cover;
-     background-position: center;
-     background-repeat: no-repeat;
-     position: relative;
-     /* Necesario para el overlay y las partículas */
-     background-color: #0a0a0a;
-     /* Fondo de respaldo */
- }
+/* Estilo para la sección de héroe con imagen de fondo */
+#hero {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/010/520/048/non_2x/programming-code-background-vector.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: #0a0a0a;
+}
 
- /* Overlay oscuro para mejorar la legibilidad del texto */
- #hero::before {
-     content: '';
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     background-color: rgba(0, 0, 0, 0.7);
-     /* Capa oscura semi-transparente */
-     z-index: 1;
-     /* Estará debajo de las partículas y el contenido */
- }
+/* Overlay oscuro para mejorar la legibilidad del texto */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
 
- /* Contenedor para particles.js */
- #particles-js {
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     top: 0;
-     left: 0;
-     z-index: 2;
-     /* Para que esté entre el overlay y el contenido */
- }
+/* Contenedor para particles.js */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
 
- /* Asegura que el contenido principal de la sección hero esté encima de las partículas y el overlay */
- /* La nueva estructura HTML maneja el posicionamiento y centrado del contenido */
- #hero .content-wrapper {
-     /* Nuevo selector para el div envolvente del contenido */
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     z-index: 3;
-     /* Mayor z-index para el contenido principal */
- }
+/* Asegura que el contenido principal de la sección hero esté encima de las partículas y el overlay */
+/* La nueva estructura HTML maneja el posicionamiento y centrado del contenido */
+#hero .content-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
 
- /* Estilos para el modal */
- .modal {
-     display: none;
-     /* Oculto por defecto */
-     position: fixed;
-     /* Permanece en su lugar */
-     z-index: 100;
-     /* Z-index alto para estar por encima de todo */
-     left: 0;
-     top: 0;
-     width: 100%;
-     /* Ancho completo */
-     height: 100%;
-     /* Alto completo */
-     overflow: auto;
-     /* Habilitar scroll si el contenido es demasiado grande */
-     background-color: rgba(0, 0, 0, 0.8);
-     /* Fondo semi-transparente oscuro */
-     animation: fadeIn 0.3s ease-out;
- }
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease-out;
+}
 
- .modal-content {
-     background-color: #1a1a1a;
-     /* Fondo del modal */
-     margin: 5% auto;
-     /* 5% desde arriba y centrado horizontalmente */
-     padding: 30px;
-     border-radius: 10px;
-     width: 90%;
-     /* Ancho del modal */
-     max-width: 800px;
-     /* Ancho máximo */
-     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-     position: relative;
-     animation: slideInTop 0.4s ease-out;
- }
+.modal-content {
+    background-color: #1a1a1a;
+    /* Fondo del modal */
+    margin: 5% auto;
+    /* 5% desde arriba y centrado horizontalmente */
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    /* Ancho del modal */
+    max-width: 800px;
+    /* Ancho máximo */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: slideInTop 0.4s ease-out;
+}
 
- .close-button {
-     color: #aaa;
-     float: right;
-     font-size: 36px;
-     font-weight: bold;
-     transition: color 0.3s ease;
- }
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
- .close-button:hover,
- .close-button:focus {
-     color: #4ade80;
-     /* Color de acento verde en hover */
-     text-decoration: none;
-     cursor: pointer;
- }
+.close-button:hover,
+.close-button:focus {
+    color: #4ade80;
+    text-decoration: none;
+    cursor: pointer;
+}
 
- @keyframes fadeIn {
-     from {
-         opacity: 0;
-     }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
 
-     to {
-         opacity: 1;
-     }
- }
+    to {
+        opacity: 1;
+    }
+}
 
- @keyframes slideInTop {
-     from {
-         transform: translateY(-50px);
-         opacity: 0;
-     }
+@keyframes slideInTop {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
 
-     to {
-         transform: translateY(0);
-         opacity: 1;
-     }
- }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
- /* Nuevo estilo para el efecto hover en iconos de redes sociales */
- .social-icon-hover:hover {
-     transform: translateY(-5px);
-     /* Mueve el icono 5px hacia arriba */
-     box-shadow: 0 8px 15px rgba(0, 255, 0, 0.2);
-     /* Sombra sutil con un toque verde */
- }
+/* Nuevo estilo para el efecto hover en iconos de redes sociales */
+.social-icon-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 255, 0, 0.2);
+}
