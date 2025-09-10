@@ -5,7 +5,7 @@ AOS.init({
 });
 
 // Desplazamiento suave para los enlaces de navegación
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+document.querySelectorAll('header nav a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
 
@@ -18,6 +18,46 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // Datos de los Proyectos (centralizados para facilitar la gestión)
 const projectsData = [
   {
+    id: "mangosofts",
+    title: "MangoSoft 🥭",
+    shortDescription:
+      "Soluciones tecnológicas en Barranqueras: Servicio Técnico, Armado de PC y Desarrollo de Software.",
+    fullDescription:
+      "Desarrollo de la plataforma oficial de la empresa MangoSoft donde se ofrece soluciones tecnológicas completas para particulares y empresas en Barranqueras y toda la región del Chaco. Nuestros servicios incluyen: Servicio Técnico para PC y celulares (reparación, mantenimiento, recuperación de datos), Armado de PC Personalizado (gaming, workstations) y Diseño Web & Sistemas a medida (responsive, e-commerce, sistemas de gestión).",
+    percentage: 100,
+    technologies: [
+      { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
+      { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
+      { icon: "fab fa-js", color: "text-yellow-500", title: "JavaScript" },
+      { icon: "fas fa-wind", color: "text-cyan-400", title: "Tailwind CSS" },
+      { icon: "fas fa-robot", color: "text-purple-400", title: "IA Gemini" },
+    ],
+    demoLink: "https://mangosofts.netlify.app/",
+    githubLink: "https://mangosofts.netlify.app/",
+    image: "/img/mangosoft/1.png",
+    modalImages: ["/img/mangosoft/2.png", "/img/mangosoft/3.png"],
+  },
+  {
+    id: "opriiet",
+    title: "Olimpiadas de OPRIIET 🤖",
+    shortDescription:
+      "Página web desarrollada para las Olimpiada Provincial de Robótica, Informática, Innovación, Electrónica y Tecnología (OPRIIET).",
+    fullDescription:
+      "Desarrollo del sitio web oficial para las Olimpiadas Provinciales de Robótica, Informática e Innovación Educativa y Tecnológica (OPRIIET). La plataforma fue creada para centralizar toda la información del evento, incluyendo cronogramas, bases y condiciones, proyectos participantes y noticias. El objetivo principal era ofrecer un punto de acceso claro y organizado para competidores, evaluadores y el público general.",
+    percentage: 100,
+    technologies: [
+      { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
+      { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
+      { icon: "fab fa-js", color: "text-yellow-500", title: "JavaScript" },
+      { icon: "fas fa-wind", color: "text-cyan-400", title: "Tailwind CSS" },
+      { icon: "fas fa-robot", color: "text-purple-400", title: "IA Gemini" },
+    ],
+    demoLink: "https://opriiet.netlify.app/",
+    githubLink: "https://opriiet.netlify.app/",
+    image: "/img/opriiet/1.png",
+    modalImages: ["/img/opriiet/2.png", "/img/opriiet/3.png"],
+  },
+  {
     id: "eeta32",
     title: "Sitio Web Oficial de la E.E.T.A. N° 32 🏫",
     shortDescription:
@@ -29,10 +69,9 @@ const projectsData = [
       { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
       { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
       { icon: "fab fa-js", color: "text-yellow-500", title: "JavaScript" },
-
     ],
-    demoLink: "https://eeta32.netlify.app/", // Enlace de demo si existe
-    githubLink: "https://eeta32.netlify.app/", // Enlace de GitHub si existe
+    demoLink: "https://eeta32.netlify.app/",
+    githubLink: "https://eeta32.netlify.app/",
     image: "/img/eeta32/1.png",
     modalImages: ["/img/eeta32/2.png", "/img/eeta32/3.png"],
   },
@@ -48,7 +87,6 @@ const projectsData = [
       { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
       { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
       { icon: "fab fa-js", color: "text-yellow-500", title: "JavaScript" },
-
     ],
     demoLink: "https://smartbiblio.netlify.app/",
     githubLink: "https://smartbiblio.netlify.app/",
@@ -67,7 +105,6 @@ const projectsData = [
       { icon: "fab fa-html5", color: "text-orange-500", title: "HTML5" },
       { icon: "fab fa-css3-alt", color: "text-blue-500", title: "CSS" },
       { icon: "fab fa-js", color: "text-yellow-500", title: "JavaScript" },
-
     ],
     demoLink: "https://cob-testing.netlify.app/",
     githubLink: "https://cob-testing.netlify.app/",
@@ -208,33 +245,81 @@ const projectsData = [
   },
 ];
 
+// Función para mostrar alerta en proyectos sin demo
+function showNoDemoAlert(event) {
+  event.preventDefault(); // Previene la navegación del enlace
+  Swal.fire({
+    icon: "info",
+    title: "Demo no disponible",
+    text: "Por el momento no cuento con una demo para que lo puedas probar. Disculpa las molestias.",
+    confirmButtonText: "Entendido",
+    confirmButtonColor: "#4ade80", // Color verde del tema
+    background: "#1a1a1a", // Fondo oscuro del tema
+    color: "#f0f0f0", // Color de texto claro
+    customClass: {
+      popup: "rounded-lg",
+    },
+  });
+}
+
 // Lógica del carrusel
-const carouselContainer = document.getElementById('carousel-container');
-projectsData.forEach(project => {
+const carouselContainer = document.getElementById("carousel-container");
+projectsData.forEach((project) => {
   const projectCardHTML = `
-                <div class="project-card-wrapper" data-aos="zoom-in" data-project-id="${project.id}">
+                <div class="project-card-wrapper" data-aos="zoom-in" data-project-id="${
+                  project.id
+                }">
                     <div class="project-card-hover bg-black rounded-lg shadow-lg flex flex-col min-h-[400px]">
-                        <img class="w-full h-48 object-cover rounded-t-lg" src="${project.image}" onerror="this.onerror=null;this.src='https://placehold.co/400x300/4ade80/000?text=Imagen+no+encontrada';" alt="Captura de pantalla de ${project.title}">
+                        <img class="w-full h-48 object-cover rounded-t-lg" src="${
+                          project.image
+                        }" onerror="this.onerror=null;this.src='https://placehold.co/400x300/4ade80/000?text=Imagen+no+encontrada';" alt="Captura de pantalla de ${
+    project.title
+  }">
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="text-2xl font-semibold text-white mb-2">${project.title}</h3>
-                                <p class="text-gray-300 text-sm mb-4">${project.shortDescription}</p>
+                                <h3 class="text-2xl font-semibold text-white mb-2">${
+                                  project.title
+                                }</h3>
+                                <p class="text-gray-300 text-sm mb-4">${
+                                  project.shortDescription
+                                }</p>
                                 <div class="w-full bg-gray-700 rounded-full h-2.5 mb-2">
-                                    <div class="bg-green-500 h-2.5 rounded-full" style="width: ${project.percentage}%;"></div>
+                                    <div class="bg-green-500 h-2.5 rounded-full" style="width: ${
+                                      project.percentage
+                                    }%;"></div>
                                 </div>
-                                <span class="text-sm text-gray-400">${project.percentage}% de progreso</span>
+                                <span class="text-sm text-gray-400">${
+                                  project.percentage
+                                }% de progreso</span>
                             </div>
                             <div class="flex flex-wrap justify-center gap-3 my-4">
-                                ${project.technologies.map(tech => `<i class="${tech.icon} ${tech.color} text-3xl" title="${tech.title}"></i>`).join('')}
+                                ${project.technologies
+                                  .map(
+                                    (tech) =>
+                                      `<i class="${tech.icon} ${tech.color} text-3xl" title="${tech.title}"></i>`
+                                  )
+                                  .join("")}
                             </div>
                             <div class="flex justify-center space-x-4 mt-auto">
-                                <a href="${project.demoLink}" target="_blank" class="text-green-400 hover:text-green-300 text-lg font-medium">
+                                <a href="${project.demoLink}" 
+                                   target="_blank" 
+                                   class="text-green-400 hover:text-green-300 text-lg font-medium"
+                                   ${
+                                     project.demoLink === "#"
+                                       ? 'onclick="showNoDemoAlert(event)"'
+                                       : ""
+                                   }
+                                >
                                     <i class="fas fa-external-link-alt mr-1"></i> Ver Proyecto
                                 </a>
-                                <a href="${project.githubLink}" target="_blank" class="text-gray-400 hover:text-gray-300 text-lg font-medium">
+                                <a href="${
+                                  project.githubLink
+                                }" target="_blank" class="text-gray-400 hover:text-gray-300 text-lg font-medium">
                                     <i class="fab fa-github mr-1"></i> GitHub
                                 </a>
-                                <button class="text-green-400 hover:text-green-300 text-lg font-medium more-details-btn" data-project-id="${project.id}">
+                                <button class="text-green-400 hover:text-green-300 text-lg font-medium more-details-btn" data-project-id="${
+                                  project.id
+                                }">
                                     <i class="fas fa-info-circle mr-1"></i> Más Detalle
                                 </button>
                             </div>
@@ -242,118 +327,138 @@ projectsData.forEach(project => {
                     </div>
                 </div>
             `;
-  carouselContainer.insertAdjacentHTML('beforeend', projectCardHTML);
+  carouselContainer.insertAdjacentHTML("beforeend", projectCardHTML);
 });
 
-const carouselViewport = document.getElementById('carousel-viewport');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
+const carouselViewport = document.getElementById("carousel-viewport");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
 
-nextBtn.addEventListener('click', () => {
+nextBtn.addEventListener("click", () => {
   carouselViewport.scrollBy({
     left: carouselViewport.clientWidth,
-    behavior: 'smooth'
+    behavior: "smooth",
   });
 });
 
-prevBtn.addEventListener('click', () => {
+prevBtn.addEventListener("click", () => {
   carouselViewport.scrollBy({
     left: -carouselViewport.clientWidth,
-    behavior: 'smooth'
+    behavior: "smooth",
   });
 });
 
-carouselViewport.addEventListener('scroll', () => {
+carouselViewport.addEventListener("scroll", () => {
   const atStart = carouselViewport.scrollLeft <= 0;
-  const atEnd = carouselViewport.scrollLeft + carouselViewport.clientWidth >= carouselContainer.scrollWidth;
+  const atEnd =
+    carouselViewport.scrollLeft + carouselViewport.clientWidth >=
+    carouselContainer.scrollWidth;
   prevBtn.disabled = atStart;
   nextBtn.disabled = atEnd;
-  prevBtn.style.opacity = atStart ? '0.5' : '1';
-  nextBtn.style.opacity = atEnd ? '0.5' : '1';
+  prevBtn.style.opacity = atStart ? "0.5" : "1";
+  nextBtn.style.opacity = atEnd ? "0.5" : "1";
 });
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   const atStart = carouselViewport.scrollLeft <= 0;
   prevBtn.disabled = atStart;
-  prevBtn.style.opacity = atStart ? '0.5' : '1';
+  prevBtn.style.opacity = atStart ? "0.5" : "1";
 });
 
 // Lógica del Modal
-const projectModal = document.getElementById('project-modal');
-const closeButton = projectModal.querySelector('.close-button');
-const modalTitle = document.getElementById('modal-project-title');
-const modalDescription = document.getElementById('modal-project-description');
-const modalTech = document.getElementById('modal-project-tech');
-const modalDemoLink = document.getElementById('modal-project-demo');
-const modalGithubLink = document.getElementById('modal-project-github');
-const modalImagesContainer = document.getElementById('modal-project-images');
+const projectModal = document.getElementById("project-modal");
+const closeButton = projectModal.querySelector(".close-button");
+const modalTitle = document.getElementById("modal-project-title");
+const modalDescription = document.getElementById("modal-project-description");
+const modalTech = document.getElementById("modal-project-tech");
+const modalDemoLink = document.getElementById("modal-project-demo");
+const modalGithubLink = document.getElementById("modal-project-github");
+const modalImagesContainer = document.getElementById("modal-project-images");
 
 function openModal(projectId) {
-  const project = projectsData.find(p => p.id === projectId);
+  const project = projectsData.find((p) => p.id === projectId);
   if (!project) return;
   modalTitle.textContent = project.title;
   modalDescription.textContent = project.fullDescription;
+
+  // Asigna el enlace de la demo y añade la alerta si es necesario
   modalDemoLink.href = project.demoLink;
+  if (project.demoLink === "#") {
+    modalDemoLink.onclick = showNoDemoAlert; // Asigna la función de alerta
+  } else {
+    modalDemoLink.onclick = null; // Elimina cualquier manejador de clic previo
+  }
+
   modalGithubLink.href = project.githubLink;
-  modalTech.innerHTML = '';
-  project.technologies.forEach(tech => {
-    const iconElement = document.createElement('i');
+  modalTech.innerHTML = "";
+  project.technologies.forEach((tech) => {
+    const iconElement = document.createElement("i");
     iconElement.className = `${tech.icon} ${tech.color} text-4xl`;
     iconElement.title = tech.title;
     modalTech.appendChild(iconElement);
   });
-  modalImagesContainer.innerHTML = '';
-  project.modalImages.forEach(imgSrc => {
-    const imgElement = document.createElement('img');
+  modalImagesContainer.innerHTML = "";
+  project.modalImages.forEach((imgSrc) => {
+    const imgElement = document.createElement("img");
     imgElement.src = imgSrc;
     imgElement.alt = `Imagen de ${project.title}`;
-    imgElement.className = 'w-full h-auto rounded-lg shadow-md object-cover';
+    imgElement.className = "w-full h-auto rounded-lg shadow-md object-cover";
     modalImagesContainer.appendChild(imgElement);
   });
-  projectModal.style.display = 'block';
+  projectModal.style.display = "block";
 }
 
 // Lógica para abrir el modal al hacer clic en cualquier parte de la tarjeta
-carouselContainer.addEventListener('click', function (e) {
-  const cardElement = e.target.closest('.project-card-wrapper');
+carouselContainer.addEventListener("click", function (e) {
+  const cardElement = e.target.closest(".project-card-wrapper");
   const clickedElement = e.target;
 
-  if (cardElement && !clickedElement.closest('a')) {
+  if (cardElement && !clickedElement.closest("a")) {
     const projectId = cardElement.dataset.projectId;
     openModal(projectId);
   }
 });
 
-closeButton.addEventListener('click', () => {
-  projectModal.style.display = 'none';
+closeButton.addEventListener("click", () => {
+  projectModal.style.display = "none";
 });
 
-window.addEventListener('click', (event) => {
+window.addEventListener("click", (event) => {
   if (event.target === projectModal) {
-    projectModal.style.display = 'none';
+    projectModal.style.display = "none";
   }
 });
 
 // Lógica del Formulario de Contacto
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const formStatus = document.getElementById('form-status');
-  formStatus.textContent = 'Enviando mensaje...';
-  formStatus.className = 'mt-4 text-center text-sm font-semibold text-green-400';
-  setTimeout(() => {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    console.log('Formulario enviado:');
-    console.log('Nombre:', name);
-    console.log('Email:', email);
-    console.log('Mensaje:', message);
-    formStatus.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.';
-    formStatus.className = 'mt-4 text-center text-sm font-semibold text-green-500';
-    this.reset();
-  }, 2000);
-});
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
 
+    const formStatus = document.getElementById("form-status");
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+
+    // Tu número de WhatsApp con el código de país (54 para Argentina)
+    const phoneNumber = "543625153078";
+
+    // Construcción del mensaje
+    const whatsappMessage = `Hola, mi nombre es ${name}.\n\nMi mensaje es:\n${message}`;
+
+    // Codificación del mensaje para la URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Creación de la URL de WhatsApp
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Mostrar mensaje de estado y abrir WhatsApp
+    formStatus.textContent = "Redirigiendo a WhatsApp...";
+    formStatus.className =
+      "mt-4 text-center text-sm font-semibold text-green-400";
+
+    window.open(whatsappURL, "_blank");
+    this.reset();
+  });
 
 // Inicialización de particles.js
 particlesJS("particles-js", {
